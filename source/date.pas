@@ -3,18 +3,18 @@ unit Date;
 
 function visokos(year: integer):boolean;      // функция для определения високосности года
     begin
-        if (year mod 400 = 0) then      // если кратен 400, то високосный
+        if (year mod 400 = 0) then      
             visokos:= True
-        else if year mod 100 = 0 then   // остальные годы, кратные 100 невисокосные
+        else if year mod 100 = 0 then   
             visokos:= False
-        else if year mod 4 = 0 then     // остальные годы, кратные 4 високосные
+        else if year mod 4 = 0 then     
             visokos:= True
-        else                            // остальные годы невисокосные
+        else                            
             visokos:= False
             
     end;
 
-function maxday( month: integer; year: integer ):integer;
+function maxday( month: integer; year: integer ):integer;	// определение кол-ва дней в месяце
     begin
         case month of
             1: maxday:= 31;
@@ -39,7 +39,7 @@ function maxday( month: integer; year: integer ):integer;
 function weekday(year_r: integer; month_r: integer; day: integer): integer;       // основная функция нахождения дня недели
     begin
     
-    var temp, month, year_code, year_c :integer;                                                 //  временная переменная (для оптимизации надо будет ее убрать)
+    var temp, month, year_code, year_c :integer;                                                 
     
     case month_r of               // кейс для нахождения кодов месяцев
         1, 10: month:= 1;       // 1 — январь, октябрь;
@@ -63,7 +63,7 @@ function weekday(year_r: integer; month_r: integer; day: integer): integer;     
 
     year_c := (year_code + (year_r mod 100) + ((year_r mod 100) div 4))mod 7;     // формула нахождения кода года
     
-    temp := ((day + month + year_r) mod 7);                           // сохранение промежуточного результата
+    temp := ((day + month + year_r) mod 7);                           
     
     if (visokos(year_r) = True) and (month_r <= 2) then                                    // если год високосный, то день недели уменьшается (сдвигается) на один
         temp-= 3
@@ -74,7 +74,7 @@ function weekday(year_r: integer; month_r: integer; day: integer): integer;     
         temp+=7;
     
 
-    weekday:=temp;  // возврат результата
+    weekday:=temp; 
     
     end;
     

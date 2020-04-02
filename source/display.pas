@@ -12,7 +12,7 @@ procedure header();
     end;
 
 
-procedure print_cur_date ( n: integer);
+procedure print_cur_date ( n: integer); // выделение зеленым текущего дня
   begin
       TextColor ( green );
       write (n);
@@ -20,7 +20,7 @@ procedure print_cur_date ( n: integer);
   end;
 
 
-procedure show(i, max, month, year: integer);	
+procedure show(i, max, month, year: integer);   // вывод в консоль
 
     
     var wl, dl, cur_d, fict_d, now_d : Integer;
